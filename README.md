@@ -1,6 +1,6 @@
-# quickstart
+# examples
 
-Some examples to get started with Hyperfluid, and how to authenticate with Service Accounts:
+Examples to get started with Hyperfluid, and how to use with Service Accounts:
 
 - [x] Bun: [`bun`](./bun/) (is similar to others JS runtimes)
 - [ ] Python
@@ -15,6 +15,7 @@ Some examples to get started with Hyperfluid, and how to authenticate with Servi
   - In your DataDock details page, go to the "Data Containers" tab
   - Click on "TPCH" to add it to your Trino Data Dock
   - Go to `cd ./bun/`
+  - Replace the variables like `YOUR_BIFROST_URL` or `YOUR_DATADOCK_ID`
   - Execute the bun script
     - `pnpm install`
     - `bun dev`

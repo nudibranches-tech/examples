@@ -13,6 +13,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "openid-client": "^6.5.0"
+    "openid-client": "^6.5.0",
+    "trino-client": "^0.2.7"
   }
 }

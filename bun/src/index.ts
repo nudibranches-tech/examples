@@ -1,7 +1,9 @@
 import type { ClientError, TokenEndpointResponse } from "openid-client";
 import { buildAuthorizationUrl, getTokens } from "./auth";
 import { $ } from "bun";
+import { BasicAuth, Trino, type QueryResult } from "trino-client";
 
+// Will trigger example when
 const tokenPromise = new Promise<TokenEndpointResponse>(async (resolve, reject) => {
   const { authorizationUrl, codeVerifier, state } = await buildAuthorizationUrl();
   console.log(`Open the URL to authenticate: ${authorizationUrl}`);
@@ -31,10 +33,13 @@ const tokenPromise = new Promise<TokenEndpointResponse>(async (resolve, reject) 
   });
 });
 
-const tokens = await tokenPromise;
+const tokens = await tokenPromise.catch(() => process.exit());
+
+// HTTP Example
+console.log("Request with HTTP:");
 
 const response = await fetch(
-  `https://bifrost.localhost:8443/87fadb6c-8b76-4c27-8b88-8074faa6ee58/openapi/tpch/tiny/orders?__limit=10`,
+  `https://<YOUR_BIFROST_URL>/<YOUR_DATADOCK_ID>/openapi/tpch/tiny/orders?__limit=10`,
   {
     headers: {
       Authorization: `Bearer ${tokens.access_token}`,
@@ -43,3 +48,34 @@ const response = await fetch(
 );
 const json = await response.json();
 console.log(json);
+
+// TRINO Example
+// TODO JwtAuth not yet available in trino-js-client
+// console.log("Request on Trino:");
+
+// const trino = Trino.create({
+//   server: "https://hf-87fadb6c-8b76-4c27-8b88-8074faa6ee58.localhost:8443",
+//   auth: new JwtAuth(tokens.access_token),
+//   ssl: {
+//     rejectUnauthorized: false,
+//   }
+// });
+
+// const iter = await trino.query(`
+// SELECT
+//   orderkey,
+//   custkey,
+//   orderstatus,
+//   totalprice,
+//   orderdate,
+//   orderpriority,
+//   clerk,
+//   shippriority,
+//   comment
+// FROM
+//   tpch.tiny.orders
+// LIMIT 10`);
+
+// for await (const queryResult of iter) {
+//   console.log(queryResult.data);
+// }
