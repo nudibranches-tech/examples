@@ -48,34 +48,3 @@ const response = await fetch(
 );
 const json = await response.json();
 console.log(json);
-
-// TRINO Example
-// TODO JwtAuth not yet available in trino-js-client
-// console.log("Request on Trino:");
-
-// const trino = Trino.create({
-//   server: "https://hf-87fadb6c-8b76-4c27-8b88-8074faa6ee58.localhost:8443",
-//   auth: new JwtAuth(tokens.access_token),
-//   ssl: {
-//     rejectUnauthorized: false,
-//   }
-// });
-
-// const iter = await trino.query(`
-// SELECT
-//   orderkey,
-//   custkey,
-//   orderstatus,
-//   totalprice,
-//   orderdate,
-//   orderpriority,
-//   clerk,
-//   shippriority,
-//   comment
-// FROM
-//   tpch.tiny.orders
-// LIMIT 10`);
-
-// for await (const queryResult of iter) {
-//   console.log(queryResult.data);
-// }
