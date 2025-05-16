@@ -2,25 +2,36 @@
 
 Examples to get started with Hyperfluid, and how to use with Service Accounts:
 
-- [x] Bun: [`bun`](./bun/) (is similar to others JS runtimes)
-- [ ] Python
+- [x] [**Bun/JS**](./bun/): with [`bun`](https://bun.sh/)
+  - [x] **Postgres**: only works with Simple Query Protocol, you should not use the Extended Query Protocol (ex: prepare statements)
+  - [x] **HTTP** (OpenAPI)
+  - [x] **GraphQL**
+  - [ ] **Trino**: the `trino-js-client` is missing the authentication with JWT, so does not work yet 
+- [ ] **Python**
 
 ## Before using the examples
 
-- An account on [Hyperfluid demo](https://demo.hyperfluid.nudibranches.tech/) (or your own instance)
+1. An account on [Hyperfluid demo](https://demo.hyperfluid.nudibranches.tech/) (or your own instance)
 
-- Create an **organization**
-  - Create an **Harbor**
-  - Create a **DataDock** with a Kind to `TrinoInternal` (choose your own options)
-  - In your DataDock details page, go to the "Data Containers" tab
-  - Click on "TPCH" to add it to your Trino Data Dock
-  - Go to `cd ./bun/`
-  - Replace the variables like `YOUR_BIFROST_URL` or `YOUR_DATADOCK_ID`
-  - Execute the bun script
+2. Create an **organization**
+    - Create an **Harbor**
+    - Create a **DataDock** with a Kind to `TrinoInternal` (choose your own options)
+    - In your DataDock details page, go to the "Data Containers" tab
+    - Click on **"TPCH" catalog** to add it to your Trino Data Dock
+
+3. Create a service account
+
+4. Move it to [`./bun/service_account.json`](./bun/)
+
+6. Go to `cd ./bun/`
+
+7. Execute the bun script
     - `pnpm install`
-    - `bun dev`
-- Create a service account
-- Move it to [`./bun/service_account.json`](./bun/)
+    - `pnpm dev`
+
+> [!NOTE]
+> When starting the example program, you can change the service account path with the environment variable `SERVICE_ACCOUNT_PATH`
+> (defaulting to : `./bun/service_account.json`).
 
 ## More details
 

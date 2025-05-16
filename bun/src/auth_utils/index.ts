@@ -1,6 +1,6 @@
 import * as client from "openid-client";
 
-const file = Bun.file("./service_account.json");
+const file = Bun.file(Bun.env.SERVICE_ACCOUNT_PATH ?? "./service_account.json");
 
 export const CONFIG: {
   client_id: string;
