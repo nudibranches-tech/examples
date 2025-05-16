@@ -2,10 +2,10 @@
 
 Examples to get started with Hyperfluid, and how to use with Service Accounts:
 
-- [x] [**Bun/JS**](./bun/): with [`bun`](https://bun.sh/)
-  - [x] **Postgres**: only works with Simple Query Protocol, you should not use the Extended Query Protocol (ex: prepare statements)
-  - [x] **HTTP** (OpenAPI)
-  - [x] **GraphQL**
+- [x] [**JS**](./bun/): with [`bun`](https://bun.sh/)
+  - [x] [**Postgres**](./bun/src/requests/postgres.ts): Only works with Simple Query Protocol, you should not use the Extended Query Protocol (ex: prepare statements)
+  - [x] [**GraphQL**](./bun/src/requests/graphql.ts)
+  - [x] [**HTTP**](./bun/src/requests/http.ts)
   - [ ] **Trino**: the `trino-js-client` is missing the authentication with JWT, so does not work yet 
 - [ ] **Python**
 
