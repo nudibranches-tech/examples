@@ -1,7 +1,7 @@
-export async function doHttpRequest(access_token: string): Promise<unknown> {
-  const urlHttpStr = prompt(`
+export async function doHttpRequest(access_token: string): Promise<any> {
+  const urlHttpStr = prompt(`\
 > Enter an OpenAPI URL
-> Example: https://<bifrost_url>/<datadock_id>/openapi/{catalog}/{schema}/{table}?__limit=10
+> Example: https://{bifrost_url}/{datadock_id}/openapi/{catalog}/{schema}/{table}?__limit=10
 >`);
   if (urlHttpStr === null) {
     console.error("No URL provided");

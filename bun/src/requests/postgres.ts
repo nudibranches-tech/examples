@@ -77,8 +77,8 @@ function fillConfig(): Config {
     let value = null;
     if (configEntry.help) {
       console.log(`> ${configEntry.label}`);
-      console.log(`> ${configEntry.help}`);
-      value = prompt(">");
+      console.log(`  > ${configEntry.help}`);
+      value = prompt("  >");
     } else {
       value = prompt(`> ${configEntry.label}`);
     }
