@@ -4,11 +4,16 @@ import { doBunPostgresRequest, doPostgresJsRequest } from "./requests/postgres";
 import { doGraphqlRequest } from "./requests/graphql";
 import { doHttpRequest } from "./requests/http";
 
-// Retrieve access_token
+// Retrieve access_token with the client credentials flow
 const tokens = await clientCredentialsFlow().catch((e: ClientError) => {
   console.error(e);
   process.exit(1);
 });
+// // Alternatively, you can use the authorization code flow
+// const tokens = await authorizationCodeFlow().catch((e: ClientError) => {
+//   console.error(e);
+//   process.exit(1);
+// });
 
 // Postgres Examples
 console.log("\nRequest with Bun postgres driver:");

@@ -1,4 +1,4 @@
-# examples
+# examples :zap:
 
 Examples to get started with Hyperfluid, and how to use with Service Accounts:
 
@@ -32,6 +32,14 @@ Examples to get started with Hyperfluid, and how to use with Service Accounts:
 > [!NOTE]
 > When starting the example program, you can change the service account path with the environment variable `SERVICE_ACCOUNT_PATH`
 > (defaulting to : `./bun/service_account.json`).
+
+## Authentication methods
+
+You can choose between two authentication methods:
+- **Client Credentials Flow:** your client will authenticate as a service account
+  - Example on how to use it: [`./bun/src/auth_utils/client_credentials.ts`](./bun/src/auth_utils/client_credentials.ts)
+- **Authorization Code Flow:** your client will authenticate as a user (like when you login to the web app)
+  - Example on how to use it: [`./bun/src/auth_utils/authorization_code.ts`](./bun/src/auth_utils/authorization_code.ts)
 
 ## More details
 
