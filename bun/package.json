@@ -15,6 +15,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "openid-client": "^6.5.0"
+    "openid-client": "^6.5.0",
+    "postgres": "^3.4.5"
   }
 }
